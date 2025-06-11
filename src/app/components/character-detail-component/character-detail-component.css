@@ -4,8 +4,9 @@
     align-items: flex-start;
     padding: 1rem;
     flex-wrap: wrap; 
+    background-color: aliceblue;
+    max-width: 85%;
 }
-
 .image-container img {
     max-width: 500px;
     border-radius: 10px;
@@ -24,6 +25,7 @@
 
 ul {
     padding-left: 1rem;
+    font-family: sans-serif;
 }
 
 button {
