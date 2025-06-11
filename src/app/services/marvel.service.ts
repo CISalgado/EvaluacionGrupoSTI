@@ -18,16 +18,16 @@ export class MarvelService {
     return `ts=${ts}&apikey=${publicKey}&hash=${hash}`;
   }
 
-getCharacters(offset: number = 0, limit: number = 54, nameStartsWith: string = '') {
-  const auth = this.getAuthParams();
-  let url = `${environment.baseApiUrl}?${auth}&limit=${limit}&offset=${offset}`;
-  
-  if (nameStartsWith) {
-    url += `&nameStartsWith=${encodeURIComponent(nameStartsWith)}`;
-  }
+  getCharacters(offset: number = 0, limit: number = 54, nameStartsWith: string = '') {
+    const auth = this.getAuthParams();
+    let url = `${environment.baseApiUrl}?${auth}&limit=${limit}&offset=${offset}`;
 
-  return this.http.get(url);
-}
+    if (nameStartsWith) {
+      url += `&nameStartsWith=${encodeURIComponent(nameStartsWith)}`;
+    }
+
+    return this.http.get(url);
+  }
 
 
   getCharacterById(id: string) {
