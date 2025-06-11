@@ -1,4 +1,8 @@
-<h1>Personajes de Marvel</h1>
+<h1 class="title">Personajes de Marvel</h1>
+
+<div class="seeker">
+  <input type="text" [(ngModel)]="searchTerm" (input)="searchCharacters()" placeholder="Buscar personaje..."/>
+</div>
 <div class="grid">
   <div *ngFor="let character of characters" class="card" (click)="goToCharacter(character)">
     <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" [alt]="character.name"/>

@@ -1,19 +1,38 @@
+.title{
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: white;
+}
+.seeker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%; 
+}
+.seeker input {
+  width: 300px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
 .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
 }
 .card {
-    cursor: pointer;
-    text-align: center;
-    border: 1px solid #000;
-    border-radius: 8px;
-    padding: 0.5rem;
-    background-color: #ccc;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 0.5rem;
+  background-color: #ccc;
 }
 .card img {
-    width: 100%;
-    border-radius: 4px;
+  width: 100%;
+  border-radius: 4px;
 }
 .pagination {
   margin-top: 1rem;

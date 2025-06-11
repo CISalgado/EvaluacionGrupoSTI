@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MarvelService } from '../../services/marvel.service';
 import { CeilPipe } from '../../pipes/ceil-pipe';
@@ -7,7 +8,7 @@ import { CeilPipe } from '../../pipes/ceil-pipe';
 @Component({
   selector: 'app-root',
   standalone: true, 
-  imports: [CommonModule, CeilPipe],
+  imports: [CommonModule, FormsModule, CeilPipe],
   templateUrl: './home-component.html',
   styleUrl: './home-component.css'
 })
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   currentPage = 1;
   limit = 54;
   total = 0;
+  searchTerm: string = '';
 
   constructor(
     private marvelService: MarvelService,
@@ -26,25 +28,29 @@ export class HomeComponent implements OnInit {
     this.loadCharacters();
   }
 
-  loadCharacters() {
-    const offset = (this.currentPage - 1) * this.limit;
-    this.marvelService.getCharacters(offset, this.limit).subscribe((res: any) => {
+  loadCharacters(offset: number = 0) {
+    this.marvelService.getCharacters(offset, this.limit, this.searchTerm).subscribe((res: any) => {
       this.characters = res.data.results;
       this.total = res.data.total;
     });
   }
 
+  searchCharacters() {
+    this.currentPage = 1; 
+    this.loadCharacters();
+  }
+
   nextPage() {
     if ((this.currentPage * this.limit) < this.total) {
       this.currentPage++;
-      this.loadCharacters();
+      this.loadCharacters((this.currentPage - 1) * this.limit);
     }
   }
 
   prevPage() {
     if (this.currentPage > 1) {
       this.currentPage--;
-      this.loadCharacters();
+      this.loadCharacters((this.currentPage - 1) * this.limit);
     }
   }
 
