@@ -20,7 +20,11 @@ export class MarvelService {
 
   getCharacters() {
     const auth = this.getAuthParams();
-    return this.http.get(`https://gateway.marvel.com/v1/public/characters?limit=20&${auth}`);
+    return this.http.get(`https://gateway.marvel.com/v1/public/characters?limit=50&${auth}`);
   }
 
+  getCharacterById(id: string) {
+    const auth = this.getAuthParams();
+    return this.http.get(`https://gateway.marvel.com/v1/public/characters/${id}?${auth}`);
+  }
 }

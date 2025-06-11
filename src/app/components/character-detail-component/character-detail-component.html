@@ -1,0 +1,20 @@
+<div *ngIf="character" class="character-detail">
+      <div class="image-container">
+            <img [src]="character.thumbnail.path + '.' + character.thumbnail.extension" [alt]="character.name"/>
+      </div>
+      <div class="info-container">
+            <h2>{{ character.name }}</h2>
+            <p>{{ character.description || 'Sin descripción disponible' }}</p>
+
+            <h3>Comics:</h3>
+            <ul *ngIf="character.comics.items.length > 0; else noComics">
+                  <li *ngFor="let comic of character.comics.items">{{ comic.name }}</li>
+            </ul>
+            <ng-template #noComics>
+                  <p>Este personaje no tiene cómics disponibles.</p>
+            </ng-template>
+      </div>
+</div>
+
+<button (click)="goHome()">← Volver</button>
+

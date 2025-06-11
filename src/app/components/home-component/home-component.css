@@ -1,6 +1,3 @@
-.home{
-    background-color: #5973e8;
-}
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));

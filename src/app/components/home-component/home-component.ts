@@ -23,4 +23,8 @@ export class HomeComponent implements OnInit {
       this.characters = res.data.results;
     });
   }
+
+  goToCharacter(character: any) {
+    this.router.navigate(['/character', character.id]);
+  }  
 }
