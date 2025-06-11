@@ -5,18 +5,21 @@
   align-items: center;
   padding: 1rem;
 }
+
 .title{
   font-size: 2rem;
   text-align: center;
   margin-bottom: 1rem;
   color: white;
 }
+
 .logo {
   position: absolute;
   top: 10px;
   left: 30px;
   height: 180px;
 }
+
 .seeker {
   display: flex;
   justify-content: center;
@@ -24,17 +27,20 @@
   margin-bottom: 1rem;
   width: 100%; 
 }
+
 .seeker input {
   width: 300px;
   padding: 8px;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 1rem;
 }
+
 .card {
   cursor: pointer;
   text-align: center;
@@ -43,10 +49,12 @@
   padding: 0.5rem;
   background-color: #ccc;
 }
+
 .card img {
   width: 100%;
   border-radius: 4px;
 }
+
 .pagination {
   margin-top: 1rem;
   display: flex;
@@ -54,6 +62,7 @@
   align-items: center;
   gap: 1rem;
 }
+
 button {
   padding: 0.5rem 1rem;
   cursor: pointer;
