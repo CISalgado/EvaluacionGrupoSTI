@@ -18,13 +18,15 @@ export class MarvelService {
     return `ts=${ts}&apikey=${publicKey}&hash=${hash}`;
   }
 
-  getCharacters() {
+  getCharacters(offset: number = 0, limit: number = 54) {
     const auth = this.getAuthParams();
-    return this.http.get(`https://gateway.marvel.com/v1/public/characters?limit=50&${auth}`);
+    const url = `${environment.baseApiUrl}?${auth}&limit=${limit}&offset=${offset}`;
+    return this.http.get(url);
   }
+
 
   getCharacterById(id: string) {
     const auth = this.getAuthParams();
-    return this.http.get(`https://gateway.marvel.com/v1/public/characters/${id}?${auth}`);
+    return this.http.get(`${environment.baseApiUrl}/${id}?${auth}`);
   }
 }
